@@ -1,10 +1,14 @@
-class TigerGraphClient:
-    def __init__(self, host="", username="", password="", graphname=""):
-        self.host = host
-        self.username = username
-        self.password = password
-        self.graphname = graphname
+import os
 
-    def query(self, gsql: str):
-        # Add pyTigerGraph connection/query execution here.
-        return []
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Use the graph API endpoint from TigerGraph Cloud, not the Cloud portal URL.
+TG_HOST = os.getenv("TIGERGRAPH_HOST", "")
+TG_GRAPH_NAME = os.getenv("TIGERGRAPH_GRAPHNAME", "")
+TG_USERNAME = os.getenv("TIGERGRAPH_USERNAME", "tigergraph")
+TG_SECRET = os.getenv("TIGERGRAPH_SECRET", "")
+
+# Gemini LLM Setup
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
